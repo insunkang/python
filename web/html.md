@@ -134,5 +134,73 @@ Quit the server with CONTROL-C.
 
    
 
+5. url.py 수정
+
+   ```py
+   from django.contrib import admin
+   from django.urls import path
+   from pages import views
    
+   urlpatterns = [
+       path('admin/', admin.site.urls),
+       path('index/',views.index)
+   ]
+   ```
+
+6. views.py 수정
+
+   ```py
+   from django.shortcuts import render
+   
+   # Create your views here.
+   def index(request):
+       return render(request,'index.html')
+   ```
+
+   pages/templates 폴더 생성,  index.html 생성
+
+
+
+# Django ORM
+
+장고에서는 orm 을 기본적으로 제공해준다.
+
+## 12_OOP_basic.py
+
+
+
+## migrate 하기
+
+```bash
+python manage.py makemigrations
+python manage.py migrate articles
+```
+
+
+# Django relation
+
+```bash
+pip install django-extensions
+```
+
+```python
+INSTALLED_APPS = [
+    'django_extensions',
+    'bootstrap4',
+    'articles',
+    'django.contrib.admin',
+    'django.contrib.auth',
+    'django.contrib.contenttypes',
+    'django.contrib.sessions',
+    'django.contrib.messages',
+    'django.contrib.staticfiles',
+]
+# install 할 때는 -, INSTALLED_APPS에 추가 할 때는 _
+```
+
+```bash
+python manage.py shell_plus
+pip install 
+python manage.py migrate
+```
 
